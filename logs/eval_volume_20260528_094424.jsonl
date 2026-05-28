@@ -1,0 +1,4 @@
+{"epoch": 1, "sharpe_ratio": 0.2211, "cumulative_return_pct": 0.0705}
+{"epoch": 2, "sharpe_ratio": -0.9341, "cumulative_return_pct": -0.4072}
+{"epoch": 3, "sharpe_ratio": 0.2036, "cumulative_return_pct": 0.1379}
+{"epoch": 4, "sharpe_ratio": 0.6968, "cumulative_return_pct": 0.6188}

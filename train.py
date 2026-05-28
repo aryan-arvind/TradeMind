@@ -211,7 +211,12 @@ def train_and_run_ablation(
             # Save eval metrics to the logs folder
             log_file = f"logs/eval_{mode}_{timestamp}.jsonl"
             with open(log_file, "a") as f:
-                log_entry = {"epoch": epoch, "sharpe_ratio": eval_metrics["sharpe_ratio"], "return": eval_metrics["cumulative_return"]}
+                # backtest.compute_metrics() returns keys like 'cumulative_return_pct'
+                log_entry = {
+                    "epoch": epoch,
+                    "sharpe_ratio": eval_metrics.get("sharpe_ratio"),
+                    "cumulative_return_pct": eval_metrics.get("cumulative_return_pct"),
+                }
                 f.write(json.dumps(log_entry) + "\n")
 
         metrics, _stats = backtest_model(policy, dataset.test_obs, dataset.test_next_returns)
